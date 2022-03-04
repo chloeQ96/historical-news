@@ -1,5 +1,8 @@
 <template>
-  <div class='my-10'>
+  <div class='flex items-center jusitfy-center' v-if="loading">
+    <LoadingIndicator />
+  </div>
+  <div class='my-10' v-if="!loading">
     <div class='text-5xl font-bold my-8'>
       {{ news.title }}
     </div>
@@ -51,8 +54,8 @@
       <tr>
         <td class='font-bold text-right align-baseline pr-10 pb-3'>types</td>
         <td class="pb-3">
-          <div v-for="item in news.holding_type" v-bind:key="item">
-            {{ item }}
+          <div v-for="(item) in [...new Set(news.holding_type)]" v-bind:key="item">
+            <p>{{ item }}</p>
           </div>
         </td>
       </tr>
@@ -66,12 +69,14 @@
 
 <script>
 import axios from "axios";
+import LoadingIndicator from '@/components/LoadingIndicator.vue';
 
 export default {
   name: 'NewsDetail',
   data() {
     return {
-      news : []
+      news : [],
+      loading: true,
     }
   },
   async created() {
@@ -80,11 +85,14 @@ export default {
       if (res.status === 200) {
         let id = this.$route.path.split('/detail/')[1]
         this.news = res.data.items[id];
-        console.log(this.news)
+        this.loading = false
       }
     } catch (error) {
       console.log(error);
     }
   },
+  components: {
+    LoadingIndicator
+  }
 }
 </script>
