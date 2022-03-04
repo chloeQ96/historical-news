@@ -3,6 +3,10 @@
     <LoadingIndicator />
   </div>
   <div class='my-10' v-if="!loading">
+    <router-link to="/" class='text-sky-500 hover:underline'>
+    {{` < `}}
+    Back to Home
+    </router-link>
     <div class='text-5xl font-bold my-8'>
       {{ news.title }}
     </div>
