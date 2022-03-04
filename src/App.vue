@@ -1,16 +1,20 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <NewsHeader />
+  <div class="w-full">
+    <div class="max-w-6xl mx-auto md:px-8 px-4">
+      <router-view />
+    </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import NewsHeader from './components/NewsHeader.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    NewsHeader,
+  },
 }
 </script>
 
@@ -19,8 +23,6 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: #212121;
 }
 </style>
