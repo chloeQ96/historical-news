@@ -46,7 +46,6 @@ export default {
       const res = await axios.get(`https://chroniclingamerica.loc.gov/search/titles/results/?terms=oakland&format=json&page=5`);
       if (res.status === 200) {
         this.news = res.data.items;
-        console.log(this.news[0])
       }
     } catch (error) {
       console.log(error);
