@@ -1,6 +1,6 @@
 <template>
   <div class='text-base py-8 border-b border-b-gray-200'>
-    <button class='text-2xl font-bold leading-6 mb-3 capitaliza hover:text-red text-left' type="button" @click="seeMoreDetail">{{ post.title }}</button>
+    <button class='text-2xl font-bold leading-6 mb-3 capitaliza hover:text-red-800 text-left' type="button" @click="seeMoreDetail">{{ post.title }}</button>
     <p class='text-sm'>
       <strong>Date covered: </strong> {{ post.start_year }} - {{ post.end_year }}
     </p>
