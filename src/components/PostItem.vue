@@ -1,14 +1,14 @@
 <template>
   <div class='text-base py-8 border-b border-b-gray-200'>
-    <button class='text-2xl font-bold leading-6 mb-3 capitaliza hover:text-red-800 text-left' type="button" @click="seeMoreDetail">{{ post.title }}</button>
+    <button class='text-2xl font-bold leading-6 mb-3 capitaliza hover:text-red-800 text-left' type="button" @click="seeMoreDetail">{{ title }}</button>
     <p class='text-sm'>
-      <strong>Date covered: </strong> {{ post.start_year }} - {{ post.end_year }}
+      <strong>Date covered: </strong> {{ startYear }} - {{ endYear }}
     </p>
     <p class='text-sm'>
-      <strong>Publisher:</strong> {{ post.publisher }}
+      <strong>Publisher:</strong> {{ publisher }}
     </p>
     <p class='text-sm'>
-      <strong>Place of publication:</strong> {{ post.place_of_publication }}
+      <strong>Place of publication:</strong> {{ placeOfPublication }}
     </p>
   </div>
 </template>
@@ -17,8 +17,12 @@
 export default {
   name: 'PostItem',
   props: {
-    post: Object,
     index: Number,
+    title: String,
+    startYear: String,
+    endYear: String,
+    publisher: String,
+    placeOfPublication: String,
   },
   methods: {
     seeMoreDetail() {

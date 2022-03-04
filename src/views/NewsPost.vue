@@ -7,8 +7,12 @@
       <div v-for="(post, index) in news" v-bind:key="post.oclc">
         <PostItem 
           v-if="index%3 === 0"
-          :post="post"
           :index="index"
+          :title="post.title"
+          :startYear="post.start_year"
+          :endYear="post.end_year"
+          :publisher="post.publisher"
+          :placeOfPublication="post.place_of_publication"
         />
       </div>
     </div>
@@ -16,8 +20,12 @@
       <div v-for="(post, index) in news" v-bind:key="post.oclc">
         <PostItem 
           v-if="index%3 === 1"
-          :post="post"
           :index="index"
+          :title="post.title"
+          :startYear="post.start_year"
+          :endYear="post.end_year"
+          :publisher="post.publisher"
+          :placeOfPublication="post.place_of_publication"
         />
       </div>
     </div>
@@ -25,8 +33,12 @@
       <div v-for="(post, index) in news" v-bind:key="post.oclc">
         <PostItem 
           v-if="index%3 === 2"
-          :post="post"
           :index="index"
+          :title="post.title"
+          :startYear="post.start_year"
+          :endYear="post.end_year"
+          :publisher="post.publisher"
+          :placeOfPublication="post.place_of_publication"
         />
       </div>
     </div>
