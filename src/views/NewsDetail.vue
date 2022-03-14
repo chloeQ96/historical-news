@@ -3,10 +3,13 @@
     <LoadingIndicator />
   </div>
   <div class='my-10' v-if="!loading">
-    <router-link to="/" class='text-sky-500 hover:underline'>
+    <button
+      @click="backToPrev"
+      class='text-sky-500 hover:underline'
+    >
     {{` < `}}
     Back to Home
-    </router-link>
+    </button>
     <div class='text-5xl font-bold my-8'>
       {{ news.title }}
     </div>
@@ -73,6 +76,7 @@
 
 <script>
 import axios from "axios";
+import router from '@/router';
 import LoadingIndicator from '@/components/LoadingIndicator.vue';
 
 export default {
@@ -87,12 +91,17 @@ export default {
     try {
       const res = await axios.get(`https://chroniclingamerica.loc.gov/search/titles/results/?terms=oakland&format=json&page=5`);
       if (res.status === 200) {
-        let id = this.$route.path.split('/detail/')[1]
+        let id = this.$route.params.id
         this.news = res.data.items[id];
         this.loading = false
       }
     } catch (error) {
       console.log(error);
+    }
+  },
+  methods: {
+    backToPrev() {
+      router.back()
     }
   },
   components: {

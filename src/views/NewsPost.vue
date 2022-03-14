@@ -3,45 +3,17 @@
     <LoadingIndicator />
   </div>
   <div class='grid grid-cols-1 md:grid-cols-3 gap-6 border-t border-t-gray-200 mt-6 mx-6' v-if="!loading">
-    <div class='col-span-1 px-4 border-r-gray-200 border-r'>
-      <div v-for="(post, index) in news" v-bind:key="post.oclc">
-        <PostItem 
-          v-if="index%3 === 0"
-          :index="index"
-          :title="post.title"
-          :startYear="post.start_year"
-          :endYear="post.end_year"
-          :publisher="post.publisher"
-          :placeOfPublication="post.place_of_publication"
-        />
-      </div>
-    </div>
-    <div class='col-span-1 px-4 border-r-gray-200 border-r'>
-      <div v-for="(post, index) in news" v-bind:key="post.oclc">
-        <PostItem 
-          v-if="index%3 === 1"
-          :index="index"
-          :title="post.title"
-          :startYear="post.start_year"
-          :endYear="post.end_year"
-          :publisher="post.publisher"
-          :placeOfPublication="post.place_of_publication"
-        />
-      </div>
-    </div>
-    <div class='col-span-1 px-4'>
-      <div v-for="(post, index) in news" v-bind:key="post.oclc">
-        <PostItem 
-          v-if="index%3 === 2"
-          :index="index"
-          :title="post.title"
-          :startYear="post.start_year"
-          :endYear="post.end_year"
-          :publisher="post.publisher"
-          :placeOfPublication="post.place_of_publication"
-        />
-      </div>
-    </div>
+    <PostItem 
+      class='col-span-1 px-4 border-r-gray-200 border-r'
+      v-for="(post, index) in news" 
+      :key="post.oclc"
+      :index="index"
+      :title="post.title"
+      :startYear="post.start_year"
+      :endYear="post.end_year"
+      :publisher="post.publisher"
+      :placeOfPublication="post.place_of_publication"
+    />
   </div>
 </template>
 

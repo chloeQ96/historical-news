@@ -1,6 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import NewsPost from '@/views/NewsPost.vue';
 import NewsDetail from '@/views/NewsDetail.vue';
+// lazy loading
+// import NewsPost () => import('@/views/NewsPost.vue');
+// import NewsDetail () => import('@/views/NewsDetail.vue');
 
 const routes = [
   {

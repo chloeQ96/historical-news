@@ -1,6 +1,11 @@
 <template>
   <div class='text-base py-8 border-b border-b-gray-200'>
-    <button class='text-2xl font-bold leading-6 mb-3 capitaliza hover:text-red-800 text-left' type="button" @click="seeMoreDetail">{{ title }}</button>
+    <router-link 
+      :to="{ name: 'detail', params: { id: index } }" 
+      class='text-2xl font-bold leading-6 mb-3 capitaliza hover:text-red-800 text-left'
+    >
+    {{ title }}
+    </router-link>
     <p class='text-sm'>
       <strong>Date covered: </strong> {{ startYear }} - {{ endYear }}
     </p>
@@ -19,15 +24,10 @@ export default {
   props: {
     index: Number,
     title: String,
-    startYear: String,
-    endYear: String,
+    startYear: Number,
+    endYear: Number,
     publisher: String,
     placeOfPublication: String,
   },
-  methods: {
-    seeMoreDetail() {
-      return window.location.href=`/detail/${this.index}`
-    }
-  }
 }
 </script>
